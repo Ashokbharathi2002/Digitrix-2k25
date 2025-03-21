@@ -54,12 +54,15 @@ window.addEventListener('DOMContentLoaded', event => {
 });
 
 document.getElementById("paymuntshow").style.display="none";
+document.getElementById("offlinepayment").style.display="none";
 function paymuntrq(){
     var value = document.getElementById("paymunt").value;
     if(value=="online paymunt"){
         document.getElementById("paymuntshow").style.display="block";
+        document.getElementById("offlinepayment").style.display="none";
     }
     if(value=="offline paymunt"){
+        document.getElementById("offlinepayment").style.display="block";
         document.getElementById("paymuntshow").style.display="none";
         document.getElementById("Transactionid").required = false;
     }
