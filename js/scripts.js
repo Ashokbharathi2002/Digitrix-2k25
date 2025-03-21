@@ -93,10 +93,13 @@ form.addEventListener("submit", e => {
   ).then((html) => {
     document.getElementById("regform").style.display="none";
     document.getElementById("sucesscard").style.display="block";
+    var sddname = document.getElementById("stdname").value;
+    document.getElementById("stdnamevalu").innerHTML="Hi "+sddname;
+
     alertbox.render({
         alertIcon: 'success',
         title: 'Thank You!',
-        message: 'AlertBox Popup Message',
+        message: 'The registration was successful.',
         btnTitle: 'Ok',
         border:true
         });
