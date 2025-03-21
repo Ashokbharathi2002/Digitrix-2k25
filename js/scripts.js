@@ -124,4 +124,5 @@ function myotp() {
     // document.getElementById("otpnumber").value = otp;
     // document.getElementById("otpnumber2").value = otp;
   
-  }
+}
+
