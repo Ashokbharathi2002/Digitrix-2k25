@@ -91,11 +91,12 @@ form.addEventListener("submit", e => {
   }).then(
     response => response.json()
   ).then((html) => {
+
     document.getElementById("regform").style.display="none";
     document.getElementById("sucesscard").style.display="block";
     var sddname = document.getElementById("stdname").value;
     document.getElementById("stdnamevalu").innerHTML="Hi "+sddname;
-
+    document.getElementById("alered").style.display= "block"
     alertbox.render({
         alertIcon: 'success',
         title: 'Thank You!',
@@ -106,3 +107,18 @@ form.addEventListener("submit", e => {
     form.reset()
   });
 });
+
+
+function myotp() {
+    let otp = '';
+    for (let i = 0; i < 6; i++) {
+      otp += Math.floor(Math.random() * 10);
+    }
+    console.log(otp)
+    document.getElementById('Verificationcode').value = otp
+
+    // document.getElementById('refens').innerHTML = otp;
+    // document.getElementById("otpnumber").value = otp;
+    // document.getElementById("otpnumber2").value = otp;
+  
+  }

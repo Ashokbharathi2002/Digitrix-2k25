@@ -51,7 +51,7 @@
         <header class="masthead">
             <div class="container" data-aos="zoom-in">
                 <div class="masthead-subheading">Welcome To Our symposium</div>
-                <div class="masthead-heading text-uppercase">DIGITRIX 2K25</div>
+                <div class="bainercinzel text-uppercase" >DIGITRIX 2K25</div>
                 <!-- <a class="btn btn-primary btn-xl text-uppercase" href="#services">Tell Me More</a> -->
             </div>
         </header>
@@ -97,6 +97,9 @@
                                 <div class="modal-header">
                                     <h1 class="modal-title fs-5" id="staticBackdropLabel">REGISTRATION FROM</h1>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body text-start" id="alered" style="display: none;">
+                                    <h3><p id="stdnamevalu" class="text-uppercase fs-3"></p>you are already register</h3>
                                 </div>
                                 <div class="modal-body text-start" id="regform">
                                     <form method="post" action="https://sheetdb.io/api/v1/rj0iagdhcwfw0" id="sheetdb-form" name="my_form">
@@ -154,7 +157,14 @@
                                                 <input type="text" class="form-control" id="Transactionid" name="data[Transaction id (or) payholder name]" required >
                                             </div>
                                         </div>
-                                        
+                                        <div class="mb-3">
+                                            <input type="checkbox" class="form-check-input" onclick="myotp()"  id="exampleCheck1">
+                                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                        </div>
+                                        <div class="mb-3" style="display: none;">
+                                            <label for="Verificationcode" class="form-label">Verification code </label>
+                                            <input type="number" class="form-control" id="Verificationcode" name="data[Verification code]" required >
+                                        </div>
 
                                         <button type="submit" class="btn btn-primary">Submit</button>
                                     </form>
@@ -166,16 +176,7 @@
                             </div>
                         </div>
                     </div>
-
                     <!-- <div class="col-md-4">
-                        <span class="fa-stack fa-4x">
-                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                            <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <h4 class="my-3">Responsive Design</h4>
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-                    </div>
-                    <div class="col-md-4">
                         <span class="fa-stack fa-4x">
                             <i class="fas fa-circle fa-stack-2x text-primary"></i>
                             <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
