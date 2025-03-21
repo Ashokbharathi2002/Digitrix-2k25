@@ -15,6 +15,8 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <!-- ani css -->
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
         <!-- tracking -->
         <script type="text/javascript">
             (function(c,l,a,r,i,t,y){
@@ -47,7 +49,7 @@
         </nav>
         <!-- Masthead-->
         <header class="masthead">
-            <div class="container">
+            <div class="container" data-aos="zoom-in">
                 <div class="masthead-subheading">Welcome To Our symposium</div>
                 <div class="masthead-heading text-uppercase">DIGITRIX 2K25</div>
                 <!-- <a class="btn btn-primary btn-xl text-uppercase" href="#services">Tell Me More</a> -->
@@ -56,12 +58,12 @@
         <!-- Services-->
         <section class="page-section" id="services">
             <div class="container">
-                <div class="text-center">
-                    <h2 class="section-heading text-uppercase">REGISTRATION</h2>
+                <div class="text-center" data-aos="zoom-in">
+                    <h3 class="section-heading text-uppercase">REGISTRATION</h3>
                     <!-- <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3> -->
                 </div>
-                <div class="row text-center">
-                    <div class="col-md-4">
+                <div class="row text-center" data-aos="zoom-in">
+                    <div class="col-md-4" >
                         <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >
                             <span class="fa-stack fa-4x">
                                 <i class="fas fa-circle fa-stack-2x text-primary"></i>
@@ -70,6 +72,22 @@
                         </button>
                         <h4 class="my-3">REGISTRATION</h4>
                         <p class="text-muted">registration for symposium</p>
+                    </div>
+                    <div class="col-md-4" id="sucesscard" style="display: none;">
+                        <div class="card mb-3" >
+                            <div class="row g-0">
+                                <div class="col-md-4">
+                                    <img src="https://th.bing.com/th/id/OIP.aHkHS3u8F5OruZPGQID6egHaHa?pid=ImgDet&w=184&h=184&c=7&dpr=1.3" class="img-fluid rounded-start" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title">The registration was successful.</h5>
+                                        <p class="card-text">We will meet at the symposium. Make sure to reach the on time.</p>
+                                        <a href="#team">Location</a> <span>&</span> <a href="#contact">Contact Us</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- REGISTRATION form -->
@@ -86,20 +104,64 @@
                                     <h1 class="modal-title fs-5" id="staticBackdropLabel">REGISTRATION FROM</h1>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
-                                <div class="modal-body">
-                                    <form>
+                                <div class="modal-body text-start" id="regform">
+                                    <form method="post" action="https://sheetdb.io/api/v1/rj0iagdhcwfw0" id="sheetdb-form" name="my_form">
                                         <div class="mb-3">
-                                            <label for="exampleInputEmail1" class="form-label">Email address</label>
-                                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                            <label for="stdname" class="form-label">Name</label>
+                                            <input type="text" class="form-control" id="stdname" name="data[name]"required >
                                         </div>
                                         <div class="mb-3">
-                                            <label for="exampleInputPassword1" class="form-label">Password</label>
-                                            <input type="password" class="form-control" id="exampleInputPassword1">
+                                            <label for="CollegeName" class="form-label">College Name</label>
+                                            <input type="text" class="form-control" id="CollegeName" name="data[College Name]" required >
                                         </div>
-                                        <div class="mb-3 form-check">
-                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                        <div class="mb-3">
+                                            <label for="Department" class="form-label">Department</label>
+                                            <input type="text" class="form-control" id="Department" name="data[Department]" required >
                                         </div>
+                                        <div class="mb-3">
+                                            <label for="ContactNumber" class="form-label">Contact Number</label>
+                                            <input type="number" class="form-control" id="ContactNumber" name="data[Contact Number]" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="mailID" class="form-label">E-mail ID</label>
+                                            <input type="email" class="form-control" id="mailID" name="data[E-mail ID]" required >
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="TitlePaper" class="form-label">Title of the Paper</label>
+                                            <input type="text" class="form-control" id="TitlePaper" name="data[Title of the Paper]" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <select class="form-select" aria-label="Default select example" id="paymunt" onchange="paymuntrq()" name="data[paymunt]" required>
+                                                <option selected value="">paymunt</option>
+                                                <option value="online paymunt">online paymunt</option>
+                                                <option value="offline paymunt">offline paymunt</option>
+                                            </select>
+                                        </div>
+                                        <div id="paymuntshow">
+                                            <div class="card mb-3" style="max-width: 540px;">
+                                                <div class="row g-0">
+                                                    <div class="col-md-4">
+                                                        <img src="/assets/img/qr code.png" class="img-fluid rounded-start" alt="paymunt QR code">
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <div class="card-body">
+                                                            <h5 class="card-title">Registration Fees ₹200 Per Student</h5>
+                                                            <p class="card-text" id="eng">Thank you for registering. You have chosen the online method. Please provide a transaction ID or payholder name.</p>
+                                                            <p class="card-text" id="tam">பதிவு செய்தமைக்கு நன்றி. நீங்கள் ஆன்லைன் முறையைத் தேர்ந்தெடுத்துள்ளீர்கள். பரிவர்த்தனை ஐடி அல்லது பணம் செலுத்துபவரின் பெயரை வழங்கவும்.</p>
+                                                            <p id="tme" onclick="tamile()">👉Tamil</p>
+                                                            <p id="engl" onclick="english()">👉English</p>
+                                                            <!-- <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p> -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="Transactionid" class="form-label">Transaction id (or) payholder name </label>
+                                                <input type="text" class="form-control" id="Transactionid" name="data[Transaction id (or) payholder name]" required >
+                                            </div>
+                                        </div>
+                                        
+
                                         <button type="submit" class="btn btn-primary">Submit</button>
                                     </form>
                                 </div>
@@ -133,85 +195,85 @@
         <!-- Portfolio Grid-->
         <section class="page-section bg-light" id="portfolio">
             <div class="container">
-                <div class="text-center">
+                <div class="text-center" data-aos="zoom-in">
                     <h2 class="section-heading text-uppercase">EVENTS</h2>
                     <!-- <h3 class="section-subheading text-muted"></h3> -->
                 </div>
                 <div class="row">
-                    <div class="col-lg-4 col-sm-6 mb-4">
+                    <div class="col-lg-4 col-sm-6 mb-4" data-aos="zoom-in" >
                         <!-- Portfolio item 1-->
-                        <div class="portfolio-item">
+                        <div class="portfolio-item" >
                             <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <img class="img-fluid" src="assets/img/portfolio/POSTER PRESENTATION.png" alt="..." />
+                                <img class="img-fluid" src="data:image/jpeg;base64,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" alt="..." />
                             </a>
                             <div class="portfolio-caption">
                                 <div class="portfolio-caption-heading">PAPER PRESENTATION</div>
-                                <!-- <div class="portfolio-caption-subheading text-muted">Illustration</div> -->
+                                <div class="portfolio-caption-subheading text-muted">TECHNICAL</div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-sm-6 mb-4">
+                    <div class="col-lg-4 col-sm-6 mb-4" data-aos="zoom-in" >
                         <!-- Portfolio item 2-->
-                        <div class="portfolio-item">
+                        <div class="portfolio-item" >
                             <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <img class="img-fluid" src="assets/img/portfolio/POSTER PRESENTATION (2).png" alt="..." />
+                                <img class="img-fluid" src="https://img.freepik.com/premium-vector/web-development-programming-languages-css-html-it-ui-programmer-cartoon-character-developing-website-coding-flat-illustration-banner_128772-866.jpg?w=360" alt="..." />
                             </a>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">POSTER PRESENTATION</div>
-                                <!-- <div class="portfolio-caption-subheading text-muted">Graphic Design</div> -->
+                                <div class="portfolio-caption-heading">Code Debugging</div>
+                                <div class="portfolio-caption-subheading text-muted">TECHNICAL</div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-sm-6 mb-4">
+                    <div class="col-lg-4 col-sm-6 mb-4" data-aos="zoom-in">
                         <!-- Portfolio item 3-->
                         <div class="portfolio-item">
                             <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal3">
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <img class="img-fluid" src="assets/img/portfolio/PROJECT EXPO.png" alt="..." />
+                                <img class="img-fluid" src="https://th.bing.com/th/id/OIP.BxfswIFfS9PMv9B_FYMt5QHaD4?w=1200&h=628&rs=1&pid=ImgDetMain" alt="..." />
                             </a>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">PROJECT EXPO</div>
-                                <!-- <div class="portfolio-caption-subheading text-muted">Identity</div> -->
+                                <div class="portfolio-caption-heading">Technical Quiz</div>
+                                <div class="portfolio-caption-subheading text-muted">TECHNICAL</div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
-                        <!-- Portfolio item 4
-                        <div class="portfolio-item">
+                    <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0" data-aos="zoom-in">
+                        <!-- Portfolio item 4 -->
+                        <div class="portfolio-item" >
                             <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal4">
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <img class="img-fluid" src="assets/img/portfolio/4.jpg" alt="..." />
+                                <img class="img-fluid" src="https://th.bing.com/th/id/OIP.Ji2sTG5mULJy2hloypZOGwHaEK?w=322&h=181&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="..." />
                             </a>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Lines</div>
-                                <div class="portfolio-caption-subheading text-muted">Branding</div>
+                                <div class="portfolio-caption-heading">Connextion</div>
+                                <div class="portfolio-caption-subheading text-muted">NON-TECHNICAL</div>
                             </div>
-                        </div> -->
+                        </div>
                     </div>
-                    <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
-                        <!-- Portfolio item 5
-                        <div class="portfolio-item">
+                    <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0" data-aos="zoom-in">
+                        <!-- Portfolio item 5 -->
+                        <div class="portfolio-item" >
                             <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal5">
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <img class="img-fluid" src="assets/img/portfolio/5.jpg" alt="..." />
+                                <img class="img-fluid" src="https://th.bing.com/th/id/OIP._jv8aCOp7EadqcTWk3XJtgHaHa?pid=ImgDet&w=184&h=184&c=7&dpr=1.3" alt="..." />
                             </a>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Southwest</div>
-                                <div class="portfolio-caption-subheading text-muted">Website Design</div>
+                                <div class="portfolio-caption-heading">Feel It Find It</div>
+                                <div class="portfolio-caption-subheading text-muted">NON-TECHNICAL</div>
                             </div>
-                        </div> -->
+                        </div>
                     </div>
                     <div class="col-lg-4 col-sm-6">
                         <!-- Portfolio item 6
@@ -234,47 +296,20 @@
         <!-- About-->
         <section class="page-section" id="about">
             <div class="container">
-                <div class="text-center">
-                    <h2 class="section-heading text-uppercase">CO-ORDINATOR</h2>
+                <div class="text-center" data-aos="zoom-in">
+                    <h2 class="section-heading text-uppercase">Convenor</h2>
                     <!-- <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3> -->
                 </div>
                 <ul class="timeline">
                     <li>
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/Ashokbharathi.jpeg" alt="..." /></div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h3>Name</h3>
-                                <h4 class="subheading">CSE (HOD) </h4>
-                            </div>
-                            <!-- <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div> -->
+                        <div class="timeline-image" data-aos="zoom-in" >
+                            <img class="rounded-circle img-fluid" src="assets/img/about/hod muthu.png" alt="..." />
                         </div>
-                    </li>
-                    <li class="timeline-inverted">
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/Ashokbharathi.jpeg" alt="..." /></div>
-                        <div class="timeline-panel">
+                        <div class="timeline-panel" >
                             <div class="timeline-heading">
-                                <h3>Name</h3>
-                                <h4 class="subheading">CSE (HOD) </h4>
-                            </div>
-                            <!-- <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div> -->
-                        </div>
-                    </li>
-                    <li>
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/Ashokbharathi.jpeg" alt="..." /></div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h3>Name</h3>
-                                <h4 class="subheading">CSE (HOD) </h4>
-                            </div>
-                            <!-- <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div> -->
-                        </div>
-                    </li>
-                    <li class="timeline-inverted">
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/Ashokbharathi.jpeg" width="200px" height="200px" alt="..." /></div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h3>Name</h3>
-                                <h4 class="subheading">CSE (HOD) </h4>
+                                <p>PROF.N.MUTHUKUMARAN</p>
+                                <p class="subheading">CSE(HOD)</p>
+                                <h6><a href="tel:+917708363460">+91 77083 63460</a></h6>
                             </div>
                             <!-- <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div> -->
                         </div>
@@ -282,12 +317,93 @@
                     <li class="timeline-inverted">
                         <div class="timeline-image">
                             <h4>
-                                Be Part
-                                <br />
-                                Of Our
-                                <br />
-                                Story!
+                                Staff <br> Co-Ordinator
                             </h4>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image" data-aos="zoom-in" >
+                            <img class="rounded-circle img-fluid" src="assets/img/about/Ashokbharathi.jpeg" alt="..." />
+                        </div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <p>Mrs.H.SRIMATHI</p>
+                                <p class="subheading">AP/CSE</p>
+                                <h6><a href="tel:+919047176942">+91 90471 76942</a></h6>
+                            </div>
+                            <!-- <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div> -->
+                        </div>
+                    </li>
+                    <li>
+                        <div class="timeline-image" data-aos="zoom-in" >
+                            <img class="rounded-circle img-fluid" src="assets/img/about/Ashokbharathi.jpeg" alt="..." />
+                        </div>
+                        <div class="timeline-panel" >
+                            <div class="timeline-heading">
+                                <p>Dr.R.PRAVEENA</p>
+                                <p class="subheading">AP/CSE</p>
+                                <h6><a href="tel:+919443541985">+91 94435 41985</a></h6>
+                            </div>
+                            <!-- <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div> -->
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image" data-aos="zoom-in" >
+                            <img class="rounded-circle img-fluid" src="assets/img/about/Ashokbharathi.jpeg" width="200px" height="200px" alt="..." />
+                        </div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <p>Mrs.MOHANAPRIYA</p>
+                                <p class="subheading">AP/CSE</p>
+                                <h6><a href="tel:+918608632702">+91 86086 32702</a></h6>
+                            </div>
+                            <!-- <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div> -->
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image">
+                            <h4>
+                                Student Secretary
+                            </h4>
+                        </div>
+                    </li>
+                    <li >
+                        <div class="timeline-image" data-aos="zoom-in">
+                            <img class="rounded-circle img-fluid" src="assets/img/about/Ashokbharathi.jpeg" width="200px" height="200px" alt="..." />
+                        </div>
+                        <div class="timeline-panel" >
+                            <div class="timeline-heading">
+                                <p>Mr.R.Dillikumar</p>
+                                <p class="subheading">III/CSE</p>
+                                <h6><a href="tel:+919025312761">+91 90253 12761</a></h6>
+                            </div>
+                            <!-- <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div> -->
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image"  data-aos="zoom-in">
+                            <img class="rounded-circle img-fluid" src="assets/img/about/Ashokbharathi.jpeg" width="200px" height="200px" alt="..." />
+                        </div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <p>Ms.P.Madhumitha</p>
+                                <p class="subheading">III/CSE</p>
+                                <h6><a href="tel:+919566856396">+91 95668 56396</a></h6>
+                            </div>
+                            <!-- <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div> -->
+                        </div>
+                    </li>
+                    <li >
+                        <div class="timeline-image" data-aos="zoom-in" >
+                            <img class="rounded-circle img-fluid" src="assets/img/about/Ashokbharathi.jpeg" width="200px" height="200px" alt="..." />
+                        </div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <p>Ms.S.Nithika</p>
+                                <p class="subheading">III/CSE</p>
+                                <h6><a href="tel:+916382264070">+91 63822 64070</a></h6>
+                            </div>
+                            <!-- <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div> -->
                         </div>
                     </li>
                 </ul>
@@ -296,11 +412,19 @@
         <!-- Team-->
         <section class="page-section bg-light" id="team">
             <div class="container">
-                <div class="text-center">
+                <div class="text-center"  data-aos="zoom-in" >
                     <h2 class="section-heading text-uppercase">Location</h2>
-                    <h3 class="section-subheading text-muted">A.R.ENGINGEERING COLLEGE</h3>
+                    <h3 class="section-subheading text-muted">
+                        <h2 class="section-heading text-uppercase">A.R. ENGINEERING COLLEGE </h2>
+                        Approved by AICTE, New Delhi / Affiliated to Anna University, Chennai <br>
+                        Vadakuchipalayam, Kappiyampuliyur Post, Villupuram-605601 <br>
+                        (Accredited by NAAC, ISO Certified: 9001:2015) <br>
+                    </h3>
                 </div>
                 <div class="row">
+
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6857.60885320831!2d79.53946659375477!3d11.97207686060915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5350c992ebd4af%3A0x6a5532a119231b71!2sA.R.%20Engineering%20College!5e1!3m2!1sen!2sin!4v1742539287167!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
                     <!-- <div class="col-lg-4">
                         <div class="team-member">
                             <img class="mx-auto rounded-circle" src="assets/img/team/1.jpg" alt="..." />
@@ -310,41 +434,8 @@
                             <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Facebook Profile"><i class="fab fa-facebook-f"></i></a>
                             <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
                         </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="team-member">
-                            <img class="mx-auto rounded-circle" src="assets/img/team/2.jpg" alt="..." />
-                            <h4>Diana Petersen</h4>
-                            <p class="text-muted">Lead Marketer</p>
-                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen Twitter Profile"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen Facebook Profile"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="team-member">
-                            <img class="mx-auto rounded-circle" src="assets/img/team/3.jpg" alt="..." />
-                            <h4>Larry Parker</h4>
-                            <p class="text-muted">Lead Developer</p>
-                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Twitter Profile"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Facebook Profile"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
                     </div> -->
-                    <div class="container overflow-hidden text-center">
-                        <div class="row gx-5">
-                            <div class="col">
-                                <div class="p-3">
-                                    <img class="img-fluid" width="500px" src="/assets/img/arec.jpeg" alt="">
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="p-3 container-fluid">
-                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3760.718962659362!2d79.53483827488854!3d11.97336368825778!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5350c992ebd4af%3A0x6a5532a119231b71!2sA.R.%20Engineering%20College!5e1!3m2!1sen!2sin!4v1742398281272!5m2!1sen!2sin" width="500" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
                 <div class="row">
                     <!-- <div class="col-lg-8 mx-auto text-center"><p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p></div> -->
@@ -375,7 +466,9 @@
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Contact Us</h2>
-                    <!-- <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3> -->
+                    <h4 class="section-heading text-uppercase" >Prof.N.Muthukumaran <br> Hod/CSE</h4>
+                    <h5 class="section-heading text-uppercase"><a href="tel:+917708363460">Contact No: 7708363460</a></h5>
+                    <h5 class="section-heading text-uppercase"><a href="mailto:digitrix2k25@gmail.com">Mail To: digitrix2k25@gmail.com</a></h5>
                 </div>
                 
             </div>
@@ -409,17 +502,30 @@
                                 <div class="modal-body">
                                     <!-- Project details-->
                                     <h2 class="text-uppercase">PAPER PRESENTATION</h2>
-                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                    <p class="item-intro text-muted">TECHNICAL EVENT</p>
                                     <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/POSTER PRESENTATION.png" alt="..." />
-                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                                    <h2>CALL FOR PAPERS</h2>
+                                    <h3>
+                                        
+                                        Artificial Intelligence (AI), 
+                                        Machine Learning (ML), 
+                                        Cybersecurity, 
+                                        Cloud Computing, 
+                                        Internet Of Things (IOT),
+                                        Next Gen AI,
+                                        Data Science and Automation
+                                    </h3>
+                                    <h5>
+                                        Please send the paper presentation report to this email address. <a href="mailto:digitrix2k25@gmail.com">digitrix2k25@gmail.com</a>
+                                    </h5>
                                     <ul class="list-inline">
                                         <li>
-                                            <strong>Client:</strong>
-                                            Threads
+                                            <strong>LAST DATE FOR PAPER SUBMISSION:</strong>
+                                            03.04.2025
                                         </li>
                                         <li>
-                                            <strong>Category:</strong>
-                                            Illustration
+                                            <strong>INTIMATION OF SELECTED PAPERS:</strong>
+                                            05.04.2025
                                         </li>
                                     </ul>
                                     <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
@@ -434,7 +540,7 @@
             </div>
         </div>
         <!-- Portfolio item 2 modal popup-->
-        <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="portfolio-modal modal fade" id="portfolioModal2/" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
@@ -469,7 +575,7 @@
             </div>
         </div>
         <!-- Portfolio item 3 modal popup-->
-        <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="portfolio-modal modal fade" id="portfolioModal3/" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
@@ -504,7 +610,7 @@
             </div>
         </div>
         <!-- Portfolio item 4 modal popup-->
-        <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="portfolio-modal modal fade" id="portfolioModal4/" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
@@ -539,7 +645,7 @@
             </div>
         </div>
         <!-- Portfolio item 5 modal popup-->
-        <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="portfolio-modal modal fade" id="portfolioModal5/" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
@@ -608,14 +714,20 @@
                 </div>
             </div>
         </div>
+        <!-- liberey files -->
+        <!-- aos animashon -->
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>
+            AOS.init();
+        </script>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- allart box -->
+        <script src="https://cdn.jsdelivr.net/gh/noumanqamar450/alertbox@main/version/1.0.2/alertbox.min.js"></script>
         <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- * *                               SB Forms JS                               * *-->
-        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="/js/scripts.js"></script>
+        <script src="/js/validashon.js"></script>
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+        
     </body>
 </html>

@@ -52,3 +52,54 @@ window.addEventListener('DOMContentLoaded', event => {
     });
 
 });
+
+document.getElementById("paymuntshow").style.display="none";
+function paymuntrq(){
+    var value = document.getElementById("paymunt").value;
+    if(value=="online paymunt"){
+        document.getElementById("paymuntshow").style.display="block";
+    }
+    if(value=="offline paymunt"){
+        document.getElementById("paymuntshow").style.display="none";
+        document.getElementById("Transactionid").required = false;
+    }
+    if(value==""){
+        document.getElementById("paymuntshow").style.display="none";
+    }
+}
+document.getElementById("engl").style.display="none";
+document.getElementById("tam").style.display="none";
+function tamile(){
+    document.getElementById("tam").style.display="block";
+    document.getElementById("eng").style.display="none";
+    document.getElementById("tme").style.display="none";
+    document.getElementById("engl").style.display="block";
+}
+function english(){
+    document.getElementById("tam").style.display="none";
+    document.getElementById("eng").style.display="block";
+    document.getElementById("engl").style.display="none";
+    document.getElementById("tme").style.display="block"
+}
+//fome sumbishon
+var form = document.getElementById('sheetdb-form');
+form.addEventListener("submit", e => {
+  e.preventDefault();
+  fetch(form.action, {
+    method : "POST",
+    body: new FormData(document.getElementById("sheetdb-form")),
+  }).then(
+    response => response.json()
+  ).then((html) => {
+    document.getElementById("regform").style.display="none";
+    document.getElementById("sucesscard").style.display="block";
+    alertbox.render({
+        alertIcon: 'success',
+        title: 'Thank You!',
+        message: 'AlertBox Popup Message',
+        btnTitle: 'Ok',
+        border:true
+        });
+    form.reset()
+  });
+});
