@@ -107,8 +107,23 @@ function mobche(){
         document.getElementById("errorno1").style.display= "none";
         document.getElementById("errorno2").style.display= "none";
     }
+}
 
-    // document.getElementById("errorno").innerHTML=lenmob;
+function emailvalidate(){
+    var email = document.getElementById("mailID").value;
+    const myArray = email.split("@");
+    console.log(myArray[1]) 
+    var validae1 = myArray[1]
+    
+    if(validae1 == "gmail.com"){
+        console.log("ok")
+        document.getElementById("errore1").style.display= "block";
+        document.getElementById("errore2").style.display= "none";
+    }
+    else{
+        document.getElementById("errore2").style.display= "block";
+        document.getElementById("errore1").style.display= "none";
+    }
 }
 
 //fome sumbishon

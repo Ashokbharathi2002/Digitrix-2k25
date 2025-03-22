@@ -153,11 +153,13 @@
                                         </div>
                                         <div class="mb-3">
                                             <label for="mailID" class="form-label">E-mail ID</label>
-                                            <input type="email" class="form-control" id="mailID" name="data[E-mail ID]" required >
+                                            <input type="email" class="form-control" id="mailID" name="data[E-mail ID]" onkeyup="emailvalidate()" required >
+                                            <span id="errore1" style="color: green; display: none;">Your E-mail is Verified </span>
+                                            <span id="errore2" style="color: red; display: none;">Your E-mail is Not-Verified </span>
                                         </div>
                                         <div class="mb-3">
                                             <label for="TitlePaper" class="form-label">Title of the Paper</label>
-                                            <input type="text" class="form-control" id="TitlePaper" name="data[Title of the Paper]" >
+                                            <input type="text" class="form-control" id="TitlePaper" name="data[Title of the Paper]" placeholder="If you don't have a paper submit the form." >
                                         </div>
                                         <div class="mb-3">
                                             <select class="form-select" aria-label="Default select example" id="paymunt" onchange="paymuntrq()" name="data[paymunt]" required>
