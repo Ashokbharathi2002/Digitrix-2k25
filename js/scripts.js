@@ -168,3 +168,62 @@ function myotp() {
   
 }
 
+//get data
+
+function getstddata(event) {
+    // get code fron user
+    var code = document.getElementById("vccood").value;
+    var url = "https://sheetdb.io/api/v1/rj0iagdhcwfw0/search?Verification_code=";
+    var apiurl = url+code;
+    // Specify the API endpoint for user data
+    const apiUrl = apiurl;
+    // Make a GET request using the Fetch API
+    fetch(apiurl)
+    .then(response => {
+        // if (!response.ok) {
+        //     throw new Error('Network response was not ok');
+        // }
+        return response.json();
+    })
+    .then(data => {
+        // Process the retrieved user data
+        // console.log(data);
+
+        var reg = data
+        if(reg =="[object Object]" ){
+            alertbox.render({
+                alertIcon: 'success',
+                title: 'Thank You!',
+                message:'Student data found',
+                btnTitle: 'Ok',
+                border:true
+            });
+        }
+        else{
+            alertbox.render({
+                alertIcon: 'error',
+                title: 'Thank You!',
+                message: 'Student not found.',
+                btnTitle: 'Ok',
+                border:true
+            });
+        }
+        
+        // alert(reg)
+        var name = data[0].name;
+        var pay = data[0].paymunt;
+        var dep = data[0].Department;
+        var clg = data[0].College_Name;
+
+        document.getElementById("std_name").innerHTML=name;
+        document.getElementById("std_paymunt").innerHTML=pay;
+        document.getElementById("std_Department").innerHTML=dep;
+        document.getElementById("std_College").innerHTML=clg;
+        
+
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+    
+}

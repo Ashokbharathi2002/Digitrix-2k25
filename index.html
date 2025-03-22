@@ -84,6 +84,34 @@
                             <p class="text-muted">Registration for Symposium</p>
                         </button>
                     </div>
+                    <!-- <div class="col-md-4" data-aos="zoom-in">
+                        <div class="card text-center">
+                            <div class="card-header">
+                                <ul class="nav nav-tabs card-header-tabs">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" aria-current="true" href="#">find</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Link</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">user data</h5>
+                                <input type="text" class="form-control" name="" id="vccood">
+                                <p class="card-text">Name: <span id="std_name"></span> </p>
+                                <p class="card-text">paymunt: <span id="std_paymunt"></span> </p>
+                                <p class="card-text">College Name: <span id="std_College"></span> </p>
+                                <p class="card-text">Department: <span id="std_Department"></span> </p>
+                                
+                                <button class="btn btn-primary" onclick=" getstddata(event)">Find</button>
+                            </div>
+                        </div>
+                    </div> -->
+                    
                     <div class="col-md-4" id="sucesscard" style="display: none; width: auto;">
                         <div class="card mb-3" >
                             <div class="row g-0">
@@ -131,7 +159,7 @@
                                         </div>
                                         <div class="mb-3">
                                             <label for="CollegeName" class="form-label">College Name</label>
-                                            <input type="text" class="form-control" id="CollegeName" name="data[College Name]" required >
+                                            <input type="text" class="form-control" id="CollegeName" name="data[College_Name]" required >
                                         </div>
                                         <div class="mb-3">
                                             <label for="Department" class="form-label">Department</label>
@@ -147,19 +175,19 @@
                                         </div>
                                         <div class="mb-3">
                                             <label for="ContactNumber" class="form-label">Contact Number</label>
-                                            <input type="number" class="form-control" id="ContactNumber" name="data[Contact Number]" oninput="mobche()" required>
+                                            <input type="number" class="form-control" id="ContactNumber" name="data[Contact_Number]" oninput="mobche()" required>
                                             <span id="errorno1" style="color: green; display: none;">Your Contact Number is Verified </span>
                                             <span id="errorno2" style="color: red; display: none;">Your Contact Number is Not-Verified </span>
                                         </div>
                                         <div class="mb-3">
                                             <label for="mailID" class="form-label">E-mail ID</label>
-                                            <input type="email" class="form-control" id="mailID" name="data[E-mail ID]" oninput="emailvalidate()" required >
+                                            <input type="email" class="form-control" id="mailID" name="data[E-mail_ID]" oninput="emailvalidate()" required >
                                             <span id="errore1" style="color: green; display: none;">Your E-mail is Verified </span>
                                             <span id="errore2" style="color: red; display: none;">Your E-mail is Not-Verified </span>
                                         </div>
                                         <div class="mb-3">
                                             <label for="TitlePaper" class="form-label">Title of the Paper</label>
-                                            <input type="text" class="form-control" id="TitlePaper" name="data[Title of the Paper]" placeholder="If you don't have a paper submit the form." >
+                                            <input type="text" class="form-control" id="TitlePaper" name="data[Title_of_the_Paper]" placeholder="If you don't have a paper submit the form." >
                                         </div>
                                         <div class="mb-3">
                                             <select class="form-select" aria-label="Default select example" id="paymunt" onchange="paymuntrq()" name="data[paymunt]" required>
@@ -188,7 +216,7 @@
                                             </div>
                                             <div class="mb-3">
                                                 <label for="Transactionid" class="form-label">Transaction id (or) payholder name </label>
-                                                <input type="text" class="form-control" id="Transactionid" name="data[Transaction id (or) payholder name]" required >
+                                                <input type="text" class="form-control" id="Transactionid" name="data[Transaction_id_(or)_payholder_name]" required >
                                             </div>
                                         </div>
                                         <div id="offlinepayment">
@@ -206,7 +234,7 @@
                                         </div>
                                         <div class="mb-3" style="display: none;">
                                             <label for="Verificationcode" class="form-label">Verification code </label>
-                                            <input type="number" class="form-control" id="Verificationcode" name="data[Verification code]" required >
+                                            <input type="number" class="form-control" id="Verificationcode" name="data[Verification_code]" required >
                                         </div>
 
                                         <button type="submit" class="btn btn-primary">Submit</button>
@@ -219,6 +247,7 @@
                             </div>
                         </div>
                     </div>
+                    
                     <!-- <div class="col-md-4">
                         <span class="fa-stack fa-4x">
                             <i class="fas fa-circle fa-stack-2x text-primary"></i>
