@@ -10944,6 +10944,9 @@ p {
     margin-right: 0;
   }
 }
+{
+  
+}
 header.masthead {
   padding-top: 10.5rem;
   padding-bottom: 6rem;
@@ -11327,16 +11330,20 @@ section#contact form#contactForm :-ms-input-placeholder {
 }
 
 .anim{
+  /* background-color: #bb2d3b; */
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0);
   font-weight:bolder;
   animation-name: example;
   animation-duration: 2s;
   animation-iteration-count: infinite;
 }
 @keyframes example {
-  0%   {color: red;}
-  25%  {color: yellow;}
-  50%  {color: blue;}
-  100% {color: green;}
+  0%   {background-color: red;}
+  25%  {background-color: yellow;}
+  50%  {background-color: blue;}
+  100% {background-color: green;}
 }
 
 /* From Uiverse.io by vinodjangid07 */ 
@@ -11406,3 +11413,4 @@ section#contact form#contactForm :-ms-input-placeholder {
 .Btn:active {
   transform: translate(2px ,2px);
 }
+
