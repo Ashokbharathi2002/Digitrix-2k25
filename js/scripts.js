@@ -84,6 +84,29 @@ function english(){
     document.getElementById("engl").style.display="none";
     document.getElementById("tme").style.display="block"
 }
+
+function mobche(){
+    var mobno = document.getElementById("ContactNumber").value;
+    var lenmob = mobno.length
+    console.log(lenmob)
+    console.log(typeof lenmob)
+
+    if (lenmob == 10){
+        document.getElementById("errorno1").style.display= "block";
+        document.getElementById("errorno2").style.display= "none";
+    }
+    if (lenmob <=9){
+        document.getElementById("errorno1").style.display= "none";
+        document.getElementById("errorno2").style.display= "block";
+    }
+    if (lenmob >=11){
+        document.getElementById("errorno1").style.display= "none";
+        document.getElementById("errorno2").style.display= "block";
+    }
+
+    // document.getElementById("errorno").innerHTML=lenmob;
+}
+
 //fome sumbishon
 var form = document.getElementById('sheetdb-form');
 form.addEventListener("submit", e => {
@@ -103,7 +126,7 @@ form.addEventListener("submit", e => {
     alertbox.render({
         alertIcon: 'success',
         title: 'Thank You!',
-        message: 'The registration was successful.',
+        message: 'The Registration was Successful.',
         btnTitle: 'Ok',
         border:true
         });

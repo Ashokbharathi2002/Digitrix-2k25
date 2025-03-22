@@ -43,7 +43,7 @@
                         <li class="nav-item"><a class="nav-link" href="#about">CO-ORDINATOR</a></li>
                         <li class="nav-item"><a class="nav-link" href="#team">Location</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                        <a href="https://web.whatsapp.com/send?text=https://digitrix2k25.netlify.app/">
+                        <a href="https://wa.me/?text=Register for the Proudly Present National Level Technical Symposium DIGITRIX 2K25. Register now. https://digitrix2k25.netlify.app/ . (Designed by AGSK TECH. call:8072121367)" target="_blank">
                             <button class="Btn">
                                 <div class="sign">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
@@ -60,7 +60,7 @@
         <!-- Masthead-->
         <header class="masthead">
             <div class="container" data-aos="zoom-in">
-                <div class="masthead-subheading">Welcome To Our symposium</div>
+                <div class="masthead-subheading">Welcome To Our Symposium</div>
                 <div class="bainercinzel text-uppercase" >DIGITRIX 2K25</div>
                 <!-- <a class="btn btn-primary btn-xl text-uppercase" href="#services">Tell Me More</a> -->
             </div>
@@ -80,7 +80,7 @@
                                 <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
                             </span>
                             <h4 class="my-3 anim">👉REGISTRATION</h4>
-                            <p class="text-muted">registration for symposium</p>
+                            <p class="text-muted">Registration for Symposium</p>
                         </button>
                     </div>
                     <div class="col-md-4" id="sucesscard" style="display: none;">
@@ -91,12 +91,11 @@
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body">
-                                        <h5 class="card-title">The registration was successful.</h5>
+                                        <h5 class="card-title">The Registration Was Successful.</h5>
                                         <p class="card-text"><p id="stdnamevalu" class="text-uppercase fs-3"></p> We will meet at the symposium. Make sure to reach the on time.</p>
                                         <a href="#team">Location</a> <span>&</span> <a href="#contact">Contact Us</a>
-                                        
                                         <!-- From Uiverse.io by vinodjangid07 --> 
-                                        <a href="https://web.whatsapp.com/send?text=https://digitrix2k25.netlify.app/">
+                                        <a href="https://wa.me/?text=Register for the Proudly Present National Level Technical Symposium DIGITRIX 2K25. Register now. https://digitrix2k25.netlify.app/ . (Designed by AGSK TECH. call:8072121367)" target="_blank">
                                             <button class="Btn">
                                                 <div class="sign">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
@@ -121,7 +120,7 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body text-start" id="alered" style="display: none;">
-                                    <h3><p id="stdnamevalu" class="text-uppercase fs-3"></p>you are already register</h3>
+                                    <h3><p id="stdnamevalu" class="text-uppercase fs-3"></p>You Are Already Register</h3>
                                 </div>
                                 <div class="modal-body text-start" id="regform">
                                     <form method="post" action="https://sheetdb.io/api/v1/rj0iagdhcwfw0" id="sheetdb-form" name="my_form">
@@ -135,11 +134,21 @@
                                         </div>
                                         <div class="mb-3">
                                             <label for="Department" class="form-label">Department</label>
-                                            <input type="text" class="form-control" id="Department" name="data[Department]" required >
+                                            <select class="form-select" id="Department" aria-label="Default select example" name="data[Department]" required>
+                                                <option selected value="">Open this select menu</option>
+                                                <option value="ECE">ECE</option>
+                                                <option value="CSE">CSE</option>
+                                                <option value="EEE">EEE</option>
+                                                <option value="CIVIL">CIVIL</option>
+                                                <option value="MECHANICAL">MECHANICAL</option>
+                                                <option value="AI & DS">AI & DS</option>
+                                            </select>
                                         </div>
                                         <div class="mb-3">
                                             <label for="ContactNumber" class="form-label">Contact Number</label>
-                                            <input type="number" class="form-control" id="ContactNumber" name="data[Contact Number]" required>
+                                            <input type="number" class="form-control" id="ContactNumber" name="data[Contact Number]" onkeyup="mobche()" required>
+                                            <span id="errorno1" style="color: green; display: none;">Your Contact Number is Verified </span>
+                                            <span id="errorno2" style="color: red; display: none;">Your Contact Number is Not-Verified </span>
                                         </div>
                                         <div class="mb-3">
                                             <label for="mailID" class="form-label">E-mail ID</label>
