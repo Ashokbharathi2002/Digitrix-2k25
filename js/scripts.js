@@ -103,6 +103,10 @@ function mobche(){
         document.getElementById("errorno1").style.display= "none";
         document.getElementById("errorno2").style.display= "block";
     }
+    if (lenmob <=5){
+        document.getElementById("errorno1").style.display= "none";
+        document.getElementById("errorno2").style.display= "none";
+    }
 
     // document.getElementById("errorno").innerHTML=lenmob;
 }
