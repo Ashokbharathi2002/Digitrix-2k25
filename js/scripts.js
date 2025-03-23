@@ -146,6 +146,14 @@ function login(){
 
 }
 
+function Fun_call() {
+    document.addEventListener('contextmenu',
+        event => event.preventDefault());
+    elm.innerHTML = "Right click disabled";
+}
+
+Fun_call()
+
 //****************************************************************************************************************************************
 //fome sumbishon
 var form = document.getElementById('sheetdb-form');
