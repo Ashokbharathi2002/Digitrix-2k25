@@ -1,12 +1,4 @@
-/*!
-* Start Bootstrap - Agency v7.0.12 (https://startbootstrap.com/theme/agency)
-* Copyright 2013-2023 Start Bootstrap
-* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-agency/blob/master/LICENSE)
-*/
-//
-// Scripts
-// 
-
+// menu and need script
 window.addEventListener('DOMContentLoaded', event => {
 
     // Navbar shrink function
@@ -52,7 +44,7 @@ window.addEventListener('DOMContentLoaded', event => {
     });
 
 });
-
+// paymunt mode
 document.getElementById("paymuntshow").style.display="none";
 document.getElementById("offlinepayment").style.display="none";
 function paymuntrq(){
@@ -70,6 +62,7 @@ function paymuntrq(){
         document.getElementById("paymuntshow").style.display="none";
     }
 }
+// card translate
 document.getElementById("engl").style.display="none";
 document.getElementById("tam").style.display="none";
 function tamile(){
@@ -84,7 +77,7 @@ function english(){
     document.getElementById("engl").style.display="none";
     document.getElementById("tme").style.display="block"
 }
-
+//phoneno validashon
 function mobche(){
     var mobno = document.getElementById("ContactNumber").value;
     var lenmob = mobno.length
@@ -108,7 +101,7 @@ function mobche(){
         document.getElementById("errorno2").style.display= "none";
     }
 }
-
+//email validashon
 function emailvalidate(){
     var email = document.getElementById("mailID").value;
     const myArray = email.split("@");
@@ -125,7 +118,35 @@ function emailvalidate(){
         document.getElementById("errore1").style.display= "none";
     }
 }
+// otp gen
+function myotp() {
+    let otp = '';
+    for (let i = 0; i < 6; i++) {
+      otp += Math.floor(Math.random() * 10);
+    }
+    console.log(otp)
+    document.getElementById('Verificationcode').value = otp
+}
+// login validashon
+function login(){
+    // login value
+    var id =document.getElementById("login_id").value;
+    var pass = document.getElementById("login_pass").value;
+    // ged login value
+    var userid = document.getElementById("staff_id").value;
+    var userpass = document.getElementById("user_password").value;
 
+    if(id==userid & pass==userpass){
+        alert("login success")
+        window.location="report.html"
+    }
+    else{
+        alert("login failed")
+    }
+
+}
+
+//****************************************************************************************************************************************
 //fome sumbishon
 var form = document.getElementById('sheetdb-form');
 form.addEventListener("submit", e => {
@@ -142,6 +163,7 @@ form.addEventListener("submit", e => {
     var sddname = document.getElementById("stdname").value;
     document.getElementById("stdnamevalu").innerHTML="Hi "+sddname;
     document.getElementById("alered").style.display= "block"
+
     alertbox.render({
         alertIcon: 'success',
         title: 'Thank You!',
@@ -152,21 +174,6 @@ form.addEventListener("submit", e => {
     form.reset()
   });
 });
-
-
-function myotp() {
-    let otp = '';
-    for (let i = 0; i < 6; i++) {
-      otp += Math.floor(Math.random() * 10);
-    }
-    console.log(otp)
-    document.getElementById('Verificationcode').value = otp
-
-    // document.getElementById('refens').innerHTML = otp;
-    // document.getElementById("otpnumber").value = otp;
-    // document.getElementById("otpnumber2").value = otp;
-  
-}
 
 //get data
 
@@ -214,11 +221,15 @@ function getstddata(event) {
         var pay = data[0].paymunt;
         var dep = data[0].Department;
         var clg = data[0].College_Name;
+        var tid = data[0].Transaction_id;
+        var mono = data[0].Contact_Number;
 
         document.getElementById("std_name").innerHTML=name;
         document.getElementById("std_paymunt").innerHTML=pay;
         document.getElementById("std_Department").innerHTML=dep;
         document.getElementById("std_College").innerHTML=clg;
+        document.getElementById("std_tid").innerHTML=tid;
+        document.getElementById("std_number").innerHTML=mono;
         
 
     })
@@ -227,3 +238,4 @@ function getstddata(event) {
     });
     
 }
+//****************************************************************************************************************************************
