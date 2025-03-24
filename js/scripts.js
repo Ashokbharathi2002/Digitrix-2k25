@@ -124,8 +124,9 @@ function myotp() {
     for (let i = 0; i < 6; i++) {
       otp += Math.floor(Math.random() * 10);
     }
-
     document.getElementById('Verificationcode').value = otp
+
+    return otp
 }
 // login validashon
 function login(){
@@ -138,11 +139,21 @@ function login(){
 
     if(id==userid & pass==userpass){ 
         alert("login success")
-        window.location="report.html"
+        // window.location="report.html"
+        var vccoad = myotp()
+        document.getElementById("logincode").value = vccoad;
+        logincode1()
     }
     else{
         alert("login failed")
     }
+    // console.log(lcood)   
+}
+// login validashon
+function logincode1(){
+    var concoad =  document.getElementById("logincode").value;
+    console.log( "con coad is: ",concoad)
+
 }
 
 function Fun_call() {
@@ -151,7 +162,7 @@ function Fun_call() {
     elm.innerHTML = "Right click disabled";
 }
 
-// Fun_call()
+Fun_call()
 
 //****************************************************************************************************************************************
 //fome sumbishon
