@@ -124,7 +124,7 @@ function myotp() {
     for (let i = 0; i < 6; i++) {
       otp += Math.floor(Math.random() * 10);
     }
-    console.log(otp)
+
     document.getElementById('Verificationcode').value = otp
 }
 // login validashon
@@ -136,14 +136,13 @@ function login(){
     var userid = document.getElementById("staff_id").value;
     var userpass = document.getElementById("user_password").value;
 
-    if(id==userid & pass==userpass){
+    if(id==userid & pass==userpass){ 
         alert("login success")
         window.location="report.html"
     }
     else{
         alert("login failed")
     }
-
 }
 
 function Fun_call() {
@@ -152,7 +151,7 @@ function Fun_call() {
     elm.innerHTML = "Right click disabled";
 }
 
-Fun_call()
+// Fun_call()
 
 //****************************************************************************************************************************************
 //fome sumbishon
@@ -184,7 +183,6 @@ form.addEventListener("submit", e => {
 });
 
 //get data
-
 function getstddata(event) {
     // get code fron user
     var code = document.getElementById("vccood").value;
@@ -231,6 +229,7 @@ function getstddata(event) {
         var clg = data[0].College_Name;
         var tid = data[0].Transaction_id;
         var mono = data[0].Contact_Number;
+        var Status = data[0].Status;
 
         document.getElementById("std_name").innerHTML=name;
         document.getElementById("std_paymunt").innerHTML=pay;
@@ -238,6 +237,7 @@ function getstddata(event) {
         document.getElementById("std_College").innerHTML=clg;
         document.getElementById("std_tid").innerHTML=tid;
         document.getElementById("std_number").innerHTML=mono;
+        document.getElementById("std_Status").innerHTML=Status;
         
 
     })
@@ -246,4 +246,78 @@ function getstddata(event) {
     });
     
 }
+// get data in to table
+function getStaffData(event){
+    event.preventDefault();
+    fetch('https://sheetdb.io/api/v1/rj0iagdhcwfw0')
+    .then(response =>response.json())
+    .then(data => {
+
+        // console.log(data)
+        let staffs = data
+        // console.log(staffs)
+        var table = "<table class= table table-sm>";
+        
+        // now add another row to show subject
+        table += `<tr>
+                    <th>S.NO</th>
+                    <th>Name</th>
+                    <th>College Name</th>
+                    <th>Department</th>
+                    <th>Contact Number</th>
+                    <th>paymunt</th>
+                    <th>Verification code</th>
+                </tr>`;
+        // now loop through staffs
+        // show their name and marks
+        for(let i = 0; i < staffs.length; i++) {
+            table += "<tr>";
+            table += `<td>${i}</td>`;
+            table += `<td>${staffs[i].name}</td>`;
+            table += `<td>${staffs[i].College_Name}</td>`;
+            table += `<td>${staffs[i].Department}</td>`;
+            table += `<td>${staffs[i].Contact_Number}</td>`;
+            table += `<td>${staffs[i].paymunt}</td>`;
+            table += `<td>${staffs[i].Verification_code}</td>`;
+            table += "</tr>";
+        }
+        table += "</table>";
+        // append table to body
+        document.getElementById("staffList").innerHTML += table;
+    })
+}
+// update the Status
+function updateStatus(event){
+    var vccode = document.getElementById("vccood").value;
+    var vccode2 = vccode+"?"
+    var urlapi = "https://sheetdb.io/api/v1/rj0iagdhcwfw0/Verification_code/"
+    var urlapi2 =  urlapi+vccode2
+    // alert(urlapi2)
+
+    fetch(urlapi2, {
+        method: 'PATCH',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            data: {
+                'Status': "present"
+            }
+        })
+    })
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data)
+        alertbox.render({
+            alertIcon: 'success',
+            title: 'Thank You!',
+            message:'updated success',
+            btnTitle: 'Ok',
+            border:true
+        });
+    });
+    
+}
+
 //****************************************************************************************************************************************

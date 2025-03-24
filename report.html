@@ -26,7 +26,7 @@
             })(window, document, "clarity", "script", "qqqqriu4ai");
         </script>
     </head>
-    <body id="page-top" oncontextmenu="return false">
+    <body id="">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
             <div class="container">
@@ -38,7 +38,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                        <!-- <a class="p-1" href="https://wa.me/?text=Register for the National Level Technical Symposium DIGITRIX 2K25. Register now at https://digitrix2k25.netlify.app/. (Designed by AGSK TECH. Call: 8072121367)" target="_blank">
+                        <a class="p-1" href="https://wa.me/?text=Register for the National Level Technical Symposium DIGITRIX 2K25. Register now at https://digitrix2k25.netlify.app/. (Designed by AGSK TECH. Call: 8072121367)" target="_blank">
                             <button class="Btn">
                                 <div class="sign">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
@@ -48,7 +48,7 @@
                                 <div class="text">Share</div>
                             </button>
                         </a>
-                        <button class="loginbtn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">
+                        <!-- <button class="loginbtn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">
                             <div class="sign"><svg viewBox="0 0 512 512"><path d="M217.9 105.9L340.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L217.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1L32 320c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM352 416l64 0c17.7 0 32-14.3 32-32l0-256c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32l64 0c53 0 96 43 96 96l0 256c0 53-43 96-96 96l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32z"></path></svg></div>    
                             <div class="text">Login</div>
                         </button>   -->
@@ -61,12 +61,12 @@
         <header class="masthead">
             <div class="container" data-aos="zoom-in">
                 <div class="masthead-subheading">Welcome To Our Symposium</div>
-                <div class="bainercinzel text-uppercase" >DIGITRIX 2K25</div>
+                <div class="bainercinzel text-uppercase">DIGITRIX 2K25 Report</div>
                 <!-- <a class="btn btn-primary btn-xl text-uppercase" href="#services">Tell Me More</a> -->
             </div>
         </header>
 
-        <section class="page-section" id="services">
+        <section class="page-section" id="reoprt">
             <div class="container">
                 <div class="text-center" data-aos="zoom-in">
                     <h3 class="section-heading text-uppercase">find Student</h3>
@@ -108,12 +108,21 @@
                                 <tr>
                                     <td>Contact_Number</td>
                                     <td id="std_number">Contact_Number</td>
+                                </tr>
+                                <tr>
+                                    <td>Status</td>
+                                    <td id="std_Status">Status</td>
+                                    <td id="updatebtn"><button class="btn" onclick="updateStatus(event)">present</button></td>
                                 </tr>  
                             </tbody>
                         </table>
                     </div>
                     <button onclick="getStaffData(event)">get</button>
                     <div class="container" id="staffList" style="overflow: scroll;"></div>
+                    <div data-sheetdb-url="https://sheetdb.io/api/v1/rj0iagdhcwfw0">
+                        <!-- <p>{{name}}</p> -->
+                    </div>
+                    
                     <!-- <div class="card mb-3">
                         <div class="row g-0">
                             <div class="col-md-4">
@@ -162,6 +171,7 @@
         </footer>
         
         <!-- liberey files -->
+        <script src="https://sheetdb.io/handlebars.js"></script>
         <!-- aos animashon -->
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <script>
@@ -173,7 +183,6 @@
         <script src="https://cdn.jsdelivr.net/gh/noumanqamar450/alertbox@main/version/1.0.2/alertbox.min.js"></script>
         <!-- Core theme JS-->
         <script src="/js/scripts.js"></script>
-        <script src="/js/report.js"></script>
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
         
     </body>
