@@ -291,32 +291,8 @@
                         </div>
                     </div>
                     <script>
-                        var form = document.getElementById('sheetdb-form');
-                        form.addEventListener("submit", e => {
-                        e.preventDefault();
-                        fetch(form.action, {
-                            method : "POST",
-                            body: new FormData(document.getElementById("sheetdb-form")),
-                        }).then(
-                            response => response.json()
-                        ).then((html) => {
-
-                            document.getElementById("regform").style.display="none";
-                            document.getElementById("sucesscard").style.display="block";
-                            var sddname = document.getElementById("stdname").value;
-                            document.getElementById("stdnamevalu").innerHTML="Hi "+sddname;
-                            document.getElementById("alered").style.display= "block"
-
-                            alertbox.render({
-                                alertIcon: 'success',
-                                title: 'Thank You!',
-                                message: 'The Registration was Successful.',
-                                btnTitle: 'Ok',
-                                border:true
-                                });
-                            form.reset()
-                        });
-                        });
+                        
+                        
                     </script>
                     
                     <!-- <div class="col-md-4">
@@ -683,6 +659,14 @@
                 </div>
             </div>
         </div>
+        <script>
+            function Fun_call() {
+            document.addEventListener('contextmenu',
+            event => event.preventDefault());
+            elm.innerHTML = "Right click disabled";
+        }
+        Fun_call()
+        </script>
         <!-- liberey files -->
         <!-- aos animashon -->
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

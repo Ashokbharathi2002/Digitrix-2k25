@@ -81,8 +81,8 @@ function english(){
 function mobche(){
     var mobno = document.getElementById("ContactNumber").value;
     var lenmob = mobno.length
-    console.log(lenmob)
-    console.log(typeof lenmob)
+    // console.log(lenmob)
+    // console.log(typeof lenmob)
 
     if (lenmob == 10){
         document.getElementById("errorno1").style.display= "block";
@@ -105,7 +105,7 @@ function mobche(){
 function emailvalidate(){
     var email = document.getElementById("mailID").value;
     const myArray = email.split("@");
-    console.log(myArray[1]) 
+    // console.log(myArray[1]) 
     var validae1 = myArray[1]
     
     if(validae1 == "gmail.com"){
@@ -125,7 +125,7 @@ function myotp() {
       otp += Math.floor(Math.random() * 10);
     }
     document.getElementById('Verificationcode').value = otp
-    console.log(otp)
+    // console.log(otp)
     return otp
 }
 // login validashon
@@ -156,17 +156,34 @@ function logincode1(){
     console.log( "con coad is: ",concoad)
     return concoad
 }
-function Fun_call() {
-    document.addEventListener('contextmenu',
-        event => event.preventDefault());
-    elm.innerHTML = "Right click disabled";
-}
 
-Fun_call()
 
 //****************************************************************************************************************************************
 //fome sumbishon
-
+var form = document.getElementById('sheetdb-form');
+    form.addEventListener("submit", e => {
+    e.preventDefault();
+    fetch(form.action, {
+        method : "POST",
+        body: new FormData(document.getElementById("sheetdb-form")),
+    }).then(
+        response => response.json()
+    ).then((html) => {
+        document.getElementById("regform").style.display="none";
+        document.getElementById("sucesscard").style.display="block";
+        var sddname = document.getElementById("stdname").value;
+        document.getElementById("stdnamevalu").innerHTML="Hi "+sddname;
+        document.getElementById("alered").style.display= "block"
+        alertbox.render({
+            alertIcon: 'success',
+            title: 'Thank You!',
+            message: 'The Registration was Successful.',
+            btnTitle: 'Ok',
+            border:true
+            });
+        form.reset()
+    });
+});
 
 
 //get data
