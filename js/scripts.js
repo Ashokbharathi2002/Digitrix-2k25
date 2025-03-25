@@ -109,7 +109,7 @@ function emailvalidate(){
     var validae1 = myArray[1]
     
     if(validae1 == "gmail.com"){
-        console.log("ok")
+        // console.log("ok")
         document.getElementById("errore1").style.display= "block";
         document.getElementById("errore2").style.display= "none";
     }
