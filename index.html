@@ -53,10 +53,10 @@
                                 <div class="text">Share</div>
                             </button>
                         </a>
-                        <!-- <button class="loginbtn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">
+                        <button class="loginbtn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">
                             <div class="sign"><svg viewBox="0 0 512 512"><path d="M217.9 105.9L340.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L217.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1L32 320c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM352 416l64 0c17.7 0 32-14.3 32-32l0-256c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32l64 0c53 0 96 43 96 96l0 256c0 53-43 96-96 96l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32z"></path></svg></div>    
                             <div class="text">Login</div>
-                        </button>   -->
+                        </button>  
                         
                     </ul>
                 </div>
@@ -98,10 +98,10 @@
                     </div>
                 </div>
             </div>
-            <div id="login_cerdens" style="display: none;">
+            <!-- <div id="login_cerdens" style="display: none;">
                 <input type="password" value="ashokAREC" id="login_id">
                 <input type="password" value="bharathi2024" id="login_pass">
-            </div>
+            </div> -->
         </div>
         <!-- Services-->
         <section class="page-section" id="services">
@@ -191,7 +191,7 @@
                                 </div>
                                 <div class="modal-body text-start" id="regform">
                                     <!-- <form method="post" action="https://sheetdb.io/api/v1/rj0iagdhcwfw0" id="sheetdb-form" name="my_form"> -->
-                                    <form action="https://sheetdb.io/api/v1/y8ai26rw9083t" method="post" id="sheetdb-form" name="my_form"> <!--tempery-->
+                                    <form action="https://sheetdb.io/api/v1/y8ai26rw9083t" method="post" id="sheetdb-form" name="my_form">
                                         <div class="mb-3">
                                             <label for="stdname" class="form-label">Name</label>
                                             <input type="text" class="form-control" id="stdname" name="data[name]"required >
@@ -290,6 +290,34 @@
                             </div>
                         </div>
                     </div>
+                    <script>
+                        var form = document.getElementById('sheetdb-form');
+                        form.addEventListener("submit", e => {
+                        e.preventDefault();
+                        fetch(form.action, {
+                            method : "POST",
+                            body: new FormData(document.getElementById("sheetdb-form")),
+                        }).then(
+                            response => response.json()
+                        ).then((html) => {
+
+                            document.getElementById("regform").style.display="none";
+                            document.getElementById("sucesscard").style.display="block";
+                            var sddname = document.getElementById("stdname").value;
+                            document.getElementById("stdnamevalu").innerHTML="Hi "+sddname;
+                            document.getElementById("alered").style.display= "block"
+
+                            alertbox.render({
+                                alertIcon: 'success',
+                                title: 'Thank You!',
+                                message: 'The Registration was Successful.',
+                                btnTitle: 'Ok',
+                                border:true
+                                });
+                            form.reset()
+                        });
+                        });
+                    </script>
                     
                     <!-- <div class="col-md-4">
                         <span class="fa-stack fa-4x">

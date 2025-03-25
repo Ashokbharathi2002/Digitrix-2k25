@@ -125,7 +125,7 @@ function myotp() {
       otp += Math.floor(Math.random() * 10);
     }
     document.getElementById('Verificationcode').value = otp
-
+    console.log(otp)
     return otp
 }
 // login validashon
@@ -139,7 +139,7 @@ function login(){
 
     if(id==userid & pass==userpass){ 
         alert("login success")
-        // window.location="report.html"
+        window.location="report.html"
         var vccoad = myotp()
         document.getElementById("logincode").value = vccoad;
         logincode1()
@@ -150,12 +150,12 @@ function login(){
     // console.log(lcood)   
 }
 // login validashon
+
 function logincode1(){
     var concoad =  document.getElementById("logincode").value;
     console.log( "con coad is: ",concoad)
-
+    return concoad
 }
-
 function Fun_call() {
     document.addEventListener('contextmenu',
         event => event.preventDefault());
@@ -166,32 +166,8 @@ Fun_call()
 
 //****************************************************************************************************************************************
 //fome sumbishon
-var form = document.getElementById('sheetdb-form');
-form.addEventListener("submit", e => {
-  e.preventDefault();
-  fetch(form.action, {
-    method : "POST",
-    body: new FormData(document.getElementById("sheetdb-form")),
-  }).then(
-    response => response.json()
-  ).then((html) => {
 
-    document.getElementById("regform").style.display="none";
-    document.getElementById("sucesscard").style.display="block";
-    var sddname = document.getElementById("stdname").value;
-    document.getElementById("stdnamevalu").innerHTML="Hi "+sddname;
-    document.getElementById("alered").style.display= "block"
 
-    alertbox.render({
-        alertIcon: 'success',
-        title: 'Thank You!',
-        message: 'The Registration was Successful.',
-        btnTitle: 'Ok',
-        border:true
-        });
-    form.reset()
-  });
-});
 
 //get data
 function getstddata(event) {
